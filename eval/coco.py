@@ -149,7 +149,7 @@ class Evaluate(keras.callbacks.Callback):
         if coco_eval_stats is not None:
             for index, result in enumerate(coco_eval_stats):
                         tag = '{}. {}'.format(index + 1, coco_tag[index])
-                        print(tag, result, epoch)
+            print(tag, result, epoch)
         if coco_eval_stats is not None and self.tensorboard is not None:
             if tf.version.VERSION < '2.0.0' and self.tensorboard.writer is not None:
                 summary = tf.Summary()
