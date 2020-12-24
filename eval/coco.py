@@ -47,7 +47,7 @@ def evaluate(generator, model, threshold=0.01):
         image, scale = generator.preprocess_image(image)
 
         # run network
-        boxes, scores, labels = model.predict_on_batch([np.expand_dims(image, axis=0)])
+        boxes, scores, labels = model.predict([np.expand_dims(image, axis=0)])
         boxes /= scale
         boxes[:, :, 0] = np.clip(boxes[:, :, 0], 0, w - 1)
         boxes[:, :, 1] = np.clip(boxes[:, :, 1], 0, h - 1)
